@@ -1,0 +1,6 @@
+env/
+__pycache__/
+portfolio-enrique/
+cloudflared
+.env
+*.pyc
