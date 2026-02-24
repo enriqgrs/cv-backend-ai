@@ -15,9 +15,12 @@ app.add_middleware(
 )
 
 # Configuración (Usando tus datos confirmados)
-SUPABASE_URL = "https://wuioytvfmkswexigetzg.supabase.co"
-SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Ind1aW95dHZmbWtzd2V4aWdldHpnIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc3MTg1NTU2OSwiZXhwIjoyMDg3NDMxNTY5fQ.MK0_6nMW_NFb_PwgT37SfuLYTWQYdqnxxkmf8jtvLuQ" # La misma que usaste en ingesta.py
-GEMINI_KEY = "AIzaSyAo_9eMl14FscNBP7w7MW4HRsHyZwAtJVg"
+# El código leerá los valores de los "Secrets" de Hugging Face de forma segura
+SUPABASE_URL = os.getenv("SUPABASE_URL")
+SUPABASE_KEY = os.getenv("SUPABASE_KEY")
+
+# Si usas la llave de Google en tu código, hazlo así:
+GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
 
 client = genai.Client(api_key=GEMINI_KEY)
 supabase = create_client(SUPABASE_URL, SUPABASE_KEY)
