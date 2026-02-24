@@ -23,7 +23,7 @@ SUPABASE_KEY = os.getenv("SUPABASE_KEY")
 # Si usas la llave de Google en tu código, hazlo así:
 GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
 
-client = genai.Client(api_key=GEMINI_KEY)
+client = genai.Client(api_key=os.getenv("GOOGLE_API_KEY"))
 supabase = create_client(SUPABASE_URL, SUPABASE_KEY)
 
 class ChatRequest(BaseModel):
